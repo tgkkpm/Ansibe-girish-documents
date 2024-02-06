@@ -53,5 +53,8 @@ ansible all -a 'ls'    == this for command
 
 
 sudo apt upgrade ansible
+## for validation playbook ##
+ansible-playbook tomcat.yaml --syntax -check
+
 
 
