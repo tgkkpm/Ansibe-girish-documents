@@ -1,10 +1,12 @@
 IN MASTER
 
-sudo apt update
-sudo apt-get install ansible -y
-sudo ansible --version
+generets KEY in masters 
+and copy that key servers for password less aurthantiction
 
-IN SERVER 
+ssh-keygen
+
+
+IN SERVER
 
 sudo apt-get update
 sudo apt-get install python3
@@ -14,7 +16,9 @@ python3 --version
 
 sudo passwd ubuntu
 give to password 123
+
 sudo vi /etc/ssh/sshd_config
+
 ## # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication yes
 #PermitEmptyPasswords no"""##
@@ -22,19 +26,31 @@ sudo service ssh restart
 
 IN MASTER
 
-generets KEY in masters 
-and copy that key servers for password less aurthantiction
-
-ssh-keygen
-
 ssh-copy-id ubuntu@servier1 private ip addres # ssh-copy-id ubuntu@172.31.43.94
 ssh-copy-id ubuntu@servier2private ip addres is a # ssh-copy-id ubuntu@172.31.46.171
 
-how we know thst server connect or not
-ping 172.31.46.171 {private or private  ip addre}
+how we know that server connect or not
+
+ping 172.31.46.171 {private or private  ip addre}..
+
+## now install ansible ##
+
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible -y
+
+IN MASTER
+
+sudo ansible --version
+sudo  vi  /etc/ansible/hosts
+
+add that server ip adders
+
+ansible all -a 'ls'    == this for command 
 
 
  sudo find / -name ansible.cfg
+
 
 sudo apt upgrade ansible
 
