@@ -1,0 +1,14 @@
+---
+- name: Install apache2 and copy content
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+
+    - name: Copy the file to content
+      copy:
+        content: "now is good working fine welcome GIRISH web site"
+        dest: /var/www/html/index.html
