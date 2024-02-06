@@ -1,4 +1,1 @@
----
- - hosts: all
-   vares:
-    myvibr: ifr
+
