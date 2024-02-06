@@ -3,12 +3,7 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install apache2
-      apt:
-        name: apache2
-        state: present
-
     - name: Copy the file to content
       copy:
-        content: "now is good working fine welcome GIRISH web site"
+        content: "now is good working fine web is up"
         dest: /var/www/html/index.html
